@@ -1,0 +1,18 @@
+POST http://localhost:3000/user/login
+Content-Type: application/json
+
+{
+    "username": "duoduoxu",
+    "password": "123123"
+}
+
+###
+GET http://localhost:3000/user/refresh?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImR1b2R1b3h1IiwidXNlcklkIjoxLCJpYXQiOjE3MzUzOTE5MjksImV4cCI6MTczNTM5MTk4OX0.hIYJJqgiW1gDAkot4-LK_U8l1UKNQM_x2dEN2usflPU
+
+
+###
+GET http://localhost:3000/user/refresh?token=xxxx
+
+###
+GET http://localhost:3000/bbb
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImR1b2R1b3h1IiwidXNlcklkIjoxLCJpYXQiOjE3MzUzOTE5MjksImV4cCI6MTczNTM5MTk4OX0.hIYJJqgiW1gDAkot4-LK_U8l1UKNQM_x2dEN2usflPU
