@@ -8,22 +8,13 @@ export async function refreshToken() {
     return refreshTokenPromise;
   }
 
-  refreshTokenPromise = new Promise(async (resolve, reject) => {
-    console.log("refresh token");
-    const token = localStorage.getItem(KEY_REFRESH_TOKEN);
-    try {
-      const resp = await request.get(`/user/refresh_token?token=${token}`);
-      localStorage.setItem(KEY_ACCESS_TOKEN, resp.data.accessToken);
-      localStorage.setItem(KEY_REFRESH_TOKEN, resp.data.refreshToken);
-      resolve(resp.data);
-      console.log("refresh token success");
-    } catch (error) {
-      reject(error);
-    }
+  console.log("refresh token");
+  const token = localStorage.getItem(KEY_REFRESH_TOKEN);
+  refreshTokenPromise = request.get(`/user/refresh_token?token=${token}`);
+  refreshTokenPromise.then((resp) => {
+    localStorage.setItem(KEY_ACCESS_TOKEN, resp.data.accessToken);
+    localStorage.setItem(KEY_REFRESH_TOKEN, resp.data.refreshToken);
   });
-  // refreshTokenPromise.then(() => {
-
-  // })
   refreshTokenPromise.finally(() => {
     refreshTokenPromise = null;
   });

@@ -34,12 +34,12 @@ instance.interceptors.response.use(
       return Promise.reject(error);
     }
     const { config, status } = error.response;
+    // 刷新token也失效时，跳转到登录页
+    if (isRefreshTokenReq(config)) {
+      console.log("go to login", error);
+      return Promise.reject(error);
+    }
     if (status === 401) {
-      // 刷新token失效时，跳转到登录页
-      if (isRefreshTokenReq(config)) {
-        console.log("go to login", error);
-        return Promise.reject(error);
-      }
       // 检查token是否被刷新过
       if (!isRefreshedToken(config)) {
         await refreshToken();
