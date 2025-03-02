@@ -43,7 +43,7 @@ export class UserController {
         userId: user.id,
       },
       {
-        expiresIn: '6s',
+        expiresIn: '15s',
       },
     );
 
@@ -52,7 +52,7 @@ export class UserController {
         userId: user.id,
       },
       {
-        expiresIn: '2m',
+        expiresIn: '5m',
       },
     );
 
