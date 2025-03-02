@@ -1,0 +1,12 @@
+### bbb
+GET http://localhost:3000/bbb
+
+### login
+
+POST http://localhost:3000/user/login
+Content-Type: application/json
+
+{
+    "username": "zhangsan",
+    "password": "123456"
+}
